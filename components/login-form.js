@@ -1,3 +1,5 @@
+import loginUser from '../lib/auth'
+
 export default class LoginForm extends React.Component {
   state = {
     email: '',
@@ -11,18 +13,20 @@ export default class LoginForm extends React.Component {
   }
 
   handleSubmit = event => {
+    const { email, password } = this.state
+
     event.preventDefault()
-    window.alert(this.state)
+    loginUser(email, password)
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <input type="email" name="email" onChange={this.handleChange} />
+          <input type="email" name="email" onChange={this.handleChange} autoComplete="email" />
         </div>
         <div>
-          <input type="password" name="password" onChange={this.handleChange} />
+          <input type="password" name="password" onChange={this.handleChange}  autoComplete="password" />
         </div>
         <button type="submit">Submit</button>
       </form>

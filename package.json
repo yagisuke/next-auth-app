@@ -9,6 +9,7 @@
   "author": "yagisuke",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.4",
     "next": "^8.0.3",
     "react": "^16.8.6",
