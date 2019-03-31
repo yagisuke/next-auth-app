@@ -1,0 +1,17 @@
+{
+  "name": "next-auth-app",
+  "version": "1.0.0",
+  "description": "next auth app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yagisuke",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "next": "^8.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
