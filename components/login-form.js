@@ -4,7 +4,9 @@ import { loginUser } from '../lib/auth'
 class LoginForm extends React.Component {
   state = {
     email: 'Shanna@melissa.tv',
-    password: 'anastasia.net'
+    password: 'anastasia.net',
+    error: '',
+    loading: false
   }
 
   handleChange = event => {
@@ -16,13 +18,20 @@ class LoginForm extends React.Component {
   handleSubmit = event => {
     const { email, password } = this.state
     event.preventDefault()
+    this.setState({ error: '', loading: true })
     loginUser(email, password).then(() => {
       Router.push('/profile')
     })
+    .catch(this.showError)
+  }
+
+  showError = err => {
+    const error = err.response && err.response.data || err.message
+    this.setState({ error, loading: false })
   }
 
   render() {
-    const { email, password } = this.state
+    const { email, password, error, loading } = this.state
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -32,7 +41,10 @@ class LoginForm extends React.Component {
         <div>
           <input type="password" name="password"  value={password} onChange={this.handleChange}  autoComplete="password" />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={loading}>
+          {loading ? 'Sending' : 'Submit'}
+        </button>
+        {error && <p>{error}</p>}
       </form>
     )
   }
