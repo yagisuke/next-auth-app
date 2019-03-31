@@ -1,4 +1,5 @@
 import Router from 'next/router'
+import { loginUser } from '../lib/auth'
 
 class LoginForm extends React.Component {
   state = {
