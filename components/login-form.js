@@ -14,7 +14,6 @@ class LoginForm extends React.Component {
 
   handleSubmit = event => {
     const { email, password } = this.state
-    console.log('NNNNN', this.props)
     event.preventDefault()
     loginUser(email, password).then(() => {
       Router.push('/profile')
