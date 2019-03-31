@@ -4,7 +4,7 @@
   "description": "next auth app",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
   "author": "yagisuke",
   "license": "ISC",
@@ -13,5 +13,8 @@
     "next": "^8.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
