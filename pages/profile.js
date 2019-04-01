@@ -1,5 +1,7 @@
 import { getUserProfile } from '../lib/auth'
 
+import Layout from '../components/layout'
+
 class Profile extends React.Component {
   state = {
     user: null
@@ -13,8 +15,11 @@ class Profile extends React.Component {
 
   render() {
     const { user } = this.state
+
     return (
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <Layout title="Profile">
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+      </Layout>
     )
   }
 }
