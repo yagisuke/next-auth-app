@@ -6,8 +6,6 @@ export default class MyDocument extends Document {
     const props = await Document.getInitialProps(ctx)
     const userData = await getServersideToken(ctx.req)
 
-    console.log('props', props)
-
     return { ...props, ...userData }
   }
 

@@ -1,15 +1,20 @@
 import Link from 'next/link'
+import { authInitialProps } from '../lib/auth'
 
 import Layout from '../components/layout'
 
-const Page = () => {
-  return (
-    <Layout title="Home">
-      <Link href="profile">
-        <a>Go to profile.</a>
-      </Link>
-    </Layout>
-  )
+class Index extends React.Component {
+  render() {
+    return (
+      <Layout title="Home" auth={this.props.auth}>
+        <Link href="profile">
+          <a>Go to profile.</a>
+        </Link>
+      </Layout>
+    )
+  }
 }
 
-export default Page
+Index.getInitialProps = authInitialProps()
+
+export default Index
